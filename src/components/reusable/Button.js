@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
        borderWidth: 1,
        borderColor: "#007aff",
        marginHorizontal: 5,
-       flex: 1
+       flex: 1,
+       
    },
    textStyle: {
        alignSelf: "center",

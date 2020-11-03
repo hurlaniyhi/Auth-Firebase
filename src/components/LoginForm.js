@@ -58,9 +58,11 @@ class LoginForm extends Component {
                 {this.state.errorMessage ? <Text style={styles.errorText}>{this.state.errorMessage}</Text>: null}
 
                 <CardSection>
-                    {!this.state.loading ?<Button onPress={this.onButtonPress.bind(this)}>
+                    {!this.state.loading ?
+                    <Button onPress={this.onButtonPress.bind(this)}>
                         Log in
-                    </Button>: <Spinner size="large" />}
+                    </Button>
+                    : <Spinner size="large" />}
                 </CardSection>
         
             </Card>

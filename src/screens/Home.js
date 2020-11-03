@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Text, StyleSheet, TextInput, View } from "react-native";
 import {SafeAreaView} from 'react-navigation'
 import firebase from 'firebase'  // ensure you import this before any other components you created in your app 
-import {Header, Button, Spinner} from '../components/reusable'
+import {Header, Button, Spinner, CardSection} from '../components/reusable'
 import LoginForm from '../components/LoginForm'
 
 
@@ -39,10 +39,18 @@ class Home extends Component{
     })
     
   }
+
+  // To log out, we call firebase.auth().signOut() method
+
+  
   renderContent(){
     switch (this.state.loggedIn) {
       case true: 
-      return <Button>Log Out</Button>
+      return (
+        <CardSection>
+          <Button onPress={()=>firebase.auth().signOut()}>Log Out</Button>
+        </CardSection>
+      )
       case false:
         return <LoginForm/>
       default:
@@ -66,11 +74,7 @@ class Home extends Component{
   
 };
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 30
-  }
-});
+
 
 Home.navigationOptions = () => {
   return {
